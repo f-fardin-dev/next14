@@ -13,7 +13,7 @@ const session = true;
 export const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <Link href="/" className={styles.logo}>
         Logo
       </Link>
@@ -42,6 +42,6 @@ export const Navbar = () => {
       >
         Menu
       </button>
-    </div>
+    </nav>
   );
 };
