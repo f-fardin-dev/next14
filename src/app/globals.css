@@ -1,0 +1,43 @@
+:root {
+  --bg: #0d0c22;
+  --bgSoft: #2d2b42;
+  --text-color: #ffffff;
+  --text-colorSoft: #e5e5e5;
+  --btn-color: #3673fd;
+  --bg-gradient: linear-gradient(
+    to bottom,
+    #0d0c22,
+    #0e0f2c,
+    #0c1237,
+    #0c1442,
+    #0c154d
+  );
+
+  --navbar-height: 100px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.container {
+  width: 1536px;
+  margin: auto;
+  padding-inline: 50px;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
