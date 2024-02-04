@@ -4,6 +4,7 @@ import { useState } from "react";
 import { links } from "./links";
 import { NavItem } from "./navItem/NavItem";
 import styles from "./navbar.module.css";
+import Link from "next/link";
 
 //temporary
 const isAdmin = true;
@@ -13,7 +14,9 @@ export const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>Logo</div>
+      <Link href="/" className={styles.logo}>
+        Logo
+      </Link>
       <div className={`${styles.links} ${openMenu && styles.mobileLinks}`}>
         {links.map((link) => (
           <NavItem key={link.path} {...link} />
