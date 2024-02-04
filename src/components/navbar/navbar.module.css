@@ -26,3 +26,47 @@
   margin-inline-start: 20px;
   background-color: darkorange;
 }
+
+.mobileLinks {
+  position: absolute;
+  flex-direction: column;
+  right: 0;
+  height: calc(100dvh - var(--navbar-height));
+  top: var(--navbar-height);
+  padding-block: 20px 50px;
+  width: var(--mobile-navbar-width);
+  background-color: #110f38;
+  border-top-left-radius: 20px;
+  animation: slide 0.3s ease;
+  display: none;
+}
+
+.mobileLogoutBt {
+  margin-inline-start: 0;
+  margin-block-start: auto;
+}
+
+.menuBt {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+  .mobileLinks {
+    display: flex;
+  }
+  .menuBt {
+    display: block;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
