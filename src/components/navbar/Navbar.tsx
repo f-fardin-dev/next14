@@ -36,12 +36,14 @@ export const Navbar = () => {
           <NavItem path="/login" title="Login" />
         )}
       </div>
-      <button
-        className={styles.menuBt}
+      <div
+        className={styles.menuBtContainer}
         onClick={() => setOpenMenu((prev) => !prev)}
       >
-        Menu
-      </button>
+        <div
+          className={`${styles.menuBt} ${openMenu && styles.menuBtOpen}`}
+        ></div>
+      </div>
     </nav>
   );
 };

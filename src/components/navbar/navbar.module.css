@@ -46,7 +46,7 @@
   margin-block-start: auto;
 }
 
-.menuBt {
+.menuBtContainer {
   display: none;
 }
 
@@ -57,8 +57,46 @@
   .mobileLinks {
     display: flex;
   }
+  .menuBtContainer {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    height: 40px;
+    cursor: pointer;
+  }
   .menuBt {
-    display: block;
+    height: 3px;
+    width: 28px;
+    position: relative;
+    background-color: var(--text-colorSoft);
+    border-radius: 5px;
+  }
+  .menuBt::after,
+  .menuBt::before {
+    content: "";
+    display: inline-block;
+    height: 3px;
+    width: 28px;
+    background-color: var(--text-colorSoft);
+    position: absolute;
+    border-radius: 5px;
+    top: -10px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+  }
+  .menuBt::after {
+    top: 10px;
+  }
+  .menuBtOpen {
+    background-color: transparent;
+  }
+  .menuBtOpen::after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .menuBtOpen::before {
+    top: 0;
+    transform: rotate(-45deg);
   }
 }
 
