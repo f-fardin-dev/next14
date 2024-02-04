@@ -14,6 +14,13 @@
   );
 
   --navbar-height: 100px;
+  --mobile-navbar-width: 250px;
+
+  --xxl: 1536px;
+  --xl: 1200px;
+  --lg: 992px;
+  --md: 768px;
+  --sm: 600px;
 }
 
 * {
@@ -25,6 +32,8 @@
 body {
   background-color: var(--bg);
   color: var(--text-color);
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 a {
@@ -33,11 +42,18 @@ a {
 }
 
 .container {
-  width: 1536px;
+  max-width: var(--xxl);
+  width: 100%;
   margin: auto;
   padding-inline: 50px;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding-inline: 20px;
+  }
 }
