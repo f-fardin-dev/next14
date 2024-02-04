@@ -15,3 +15,14 @@
   align-items: center;
   gap: 10px;
 }
+
+.logoutBt {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-inline-start: 20px;
+  background-color: darkorange;
+}
