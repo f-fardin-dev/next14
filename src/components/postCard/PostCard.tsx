@@ -5,12 +5,13 @@ import Link from "next/link";
 export const PostCard = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.postImage}>
+      <div className={styles.postImageContainer}>
         <Image
           fill
+          className={styles.postImage}
           alt="post card image"
           src="https://images.pexels.com/photos/18369349/pexels-photo-18369349/free-photo-of-tet-holiday-in-vietnam.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          objectFit="cover"
+          sizes="100%"
         />
       </div>
       <div className={styles.postInfo}>

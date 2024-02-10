@@ -9,6 +9,10 @@
   height: calc(100vh - 200px);
 }
 
+.postImg {
+  object-fit: cover;
+}
+
 .postInfoContainer {
   flex: 2;
   display: flex;

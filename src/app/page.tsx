@@ -14,17 +14,23 @@ export default function Home() {
           <button className={styles.button}>Learn More</button>
           <button className={styles.button}>Contact</button>
         </div>
-        <div className={styles.brandsContainer}>
-          <Image
-            alt="Brands image"
-            src="/brands.png"
-            fill
-            className={styles.brandsImg}
-          />
-        </div>
+        <Image
+          alt="Brands image"
+          src="/brands.png"
+          width={500}
+          height={50}
+          className={styles.brandsImg}
+        />
       </div>
       <div className={styles.heroContainer}>
-        <Image alt="Hero image" src="/hero.gif" fill objectFit="contain" />
+        <Image
+          alt="Hero image"
+          src="/hero.gif"
+          fill
+          priority
+          sizes="45vw"
+          className={styles.heroImg}
+        />
       </div>
     </div>
   );

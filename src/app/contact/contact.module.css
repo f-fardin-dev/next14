@@ -10,6 +10,10 @@
   position: relative;
 }
 
+.img {
+  object-fit: contain;
+}
+
 .formContainer {
   flex: 1;
 }

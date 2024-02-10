@@ -7,9 +7,10 @@ const SinglePostPage = () => {
       <div className={styles.postImgContainer}>
         <Image
           fill
+          sizes="30vw"
           alt="post image"
           src="https://images.pexels.com/photos/18369349/pexels-photo-18369349/free-photo-of-tet-holiday-in-vietnam.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          objectFit="cover"
+          className={styles.postImg}
         />
       </div>
       <div className={styles.postInfoContainer}>

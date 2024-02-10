@@ -48,11 +48,12 @@
   height: 500px;
 }
 
-.brandsContainer {
-  width: 500px;
-  height: 50px;
+.heroImg {
+  object-fit: contain;
+}
+
+.brandsImg {
   filter: grayscale(1);
-  position: relative;
 }
 
 @media (max-width: 768px) {

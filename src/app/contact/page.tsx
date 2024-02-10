@@ -9,7 +9,8 @@ const ContactPage = () => {
           fill
           alt="Contact page image"
           src="/contact.png"
-          objectFit="contain"
+          sizes="45vw"
+          className={styles.img}
         />
       </div>
       <div className={styles.formContainer}>
