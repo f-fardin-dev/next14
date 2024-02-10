@@ -34,6 +34,7 @@ body {
   color: var(--text-color);
   width: 100vw;
   overflow-x: hidden;
+  padding-inline: 20px;
 }
 
 a {
