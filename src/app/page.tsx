@@ -24,13 +24,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.heroContainer}>
-        <Image
-          alt="Hero image"
-          src="/hero.gif"
-          fill
-          className={styles.heroImg}
-          objectFit="contain"
-        />
+        <Image alt="Hero image" src="/hero.gif" fill objectFit="contain" />
       </div>
     </div>
   );
