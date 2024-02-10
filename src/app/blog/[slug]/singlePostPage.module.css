@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  gap: 100px;
+}
+
+.postImgContainer {
+  flex: 1;
+  position: relative;
+  height: calc(100vh - 200px);
+}
+
+.postInfoContainer {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.title {
+  font-size: 64px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoLabel {
+  color: gray;
+  font-weight: bold;
+}
+
+.infoValue {
+  font-weight: 500;
+}
+
+.content {
+  font-size: 20px;
+}
