@@ -5,7 +5,6 @@ const AboutPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
-        <h2 className={styles.subtitle}>About Agency</h2>
         <h1 className={styles.title}>
           We create digital ideas that are bigger, bolder, braver and better.
         </h1>
