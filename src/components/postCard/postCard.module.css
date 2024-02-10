@@ -28,11 +28,39 @@
 
 .title {
   font-size: 24px;
+  line-height: 28px;
+  max-height: 56px;
+  overflow: hidden;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  height: 28px;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  background: linear-gradient(90deg, transparent, var(--bgSoft));
 }
 
 .desc {
   font-weight: 300;
   color: #d0d0d0;
+  line-height: 20px;
+  max-height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.desc::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  background: linear-gradient(90deg, transparent, var(--bgSoft));
 }
 
 .extraInfo {
