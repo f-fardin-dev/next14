@@ -1,6 +1,7 @@
 .container {
   display: flex;
   gap: 100px;
+  align-items: center;
 }
 
 .textContainer {
@@ -16,11 +17,11 @@
 }
 
 .title {
-  font-size: 54px;
+  font-size: 45px;
 }
 
 .description {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
 }
 
@@ -44,4 +45,30 @@
 .imgContainer {
   flex: 1;
   position: relative;
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .boxes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .imgContainer {
+    min-height: 300px;
+    width: 100%;
+  }
 }

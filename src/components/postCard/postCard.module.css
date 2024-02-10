@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   background-color: var(--bgSoft);
-  flex: 1 0 400px;
-  max-width: 400px;
+  flex: 1 0 300px;
+  max-width: 300px;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .postImage {
   position: relative;
-  height: 400px;
+  height: 300px;
 }
 
 .postInfo {
@@ -38,11 +38,4 @@
   color: #d0d0d0;
   padding-block-start: 8px;
   margin-block-start: auto;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex: 1 0 300px;
-    max-width: 300px;
-  }
 }

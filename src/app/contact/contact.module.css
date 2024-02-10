@@ -6,7 +6,7 @@
 
 .imgContainer {
   flex: 1;
-  height: 500px;
+  height: 400px;
   position: relative;
 }
 
@@ -23,7 +23,7 @@
 .form input,
 .form textarea,
 .form button {
-  padding: 20px;
+  padding: 12px;
   border-radius: 5px;
   border: none;
   outline: none;
@@ -42,4 +42,10 @@
   color: var(--text-color);
   font-weight: bold;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .imgContainer {
+    display: none;
+  }
 }

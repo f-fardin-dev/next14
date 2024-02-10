@@ -17,7 +17,7 @@
 }
 
 .title {
-  font-size: 64px;
+  font-size: 54px;
 }
 
 .details {
@@ -29,6 +29,7 @@
 .avatar {
   border-radius: 50%;
   object-fit: cover;
+  min-width: 50px;
 }
 
 .info {
@@ -48,4 +49,16 @@
 
 .content {
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .postImgContainer {
+    display: none;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .content {
+    font-size: 16px;
+  }
 }

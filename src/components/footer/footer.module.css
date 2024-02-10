@@ -13,3 +13,12 @@
 .footerText {
   font-size: 12px;
 }
+
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin-block-start: 50px;
+  }
+}

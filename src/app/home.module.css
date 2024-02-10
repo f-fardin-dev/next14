@@ -9,10 +9,11 @@
   flex-direction: column;
   justify-content: center;
   gap: 50px;
+  min-width: 0;
 }
 
 .textContainer > h1 {
-  font-size: 70px;
+  font-size: 54px;
   width: min-content;
 }
 
@@ -43,9 +44,8 @@
 
 .heroContainer {
   flex: 1;
-  flex-shrink: 0;
-  aspect-ratio: 1/1;
   position: relative;
+  height: 500px;
 }
 
 .brandsContainer {
@@ -53,4 +53,24 @@
   height: 50px;
   filter: grayscale(1);
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .heroContainer {
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .textContainer > h1 {
+    font-size: 30px;
+  }
+
+  .textContainer > p {
+    font-size: 16px;
+  }
 }
