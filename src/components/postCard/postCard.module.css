@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bgSoft);
+  flex: 1 0 400px;
+  max-width: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.postImage {
+  position: relative;
+  height: 400px;
+}
+
+.postInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  padding-block-start: 15px;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.desc {
+  font-weight: 300;
+  color: #d0d0d0;
+}
+
+.extraInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #d0d0d0;
+  padding-block-start: 8px;
+  margin-block-start: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex: 1 0 300px;
+    max-width: 300px;
+  }
+}
