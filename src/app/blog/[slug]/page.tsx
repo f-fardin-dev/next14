@@ -1,7 +1,17 @@
 import Image from "next/image";
 import styles from "./singlePostPage.module.css";
+import { getPost } from "@app/services/post";
+import { PostUser } from "@app/components/postUser/PostUser";
+import { Suspense } from "react";
 
-const SinglePostPage = () => {
+interface SinglePostPageProps {
+  params: { slug: string };
+}
+const SinglePostPage = async ({ params }: SinglePostPageProps) => {
+  const post = await getPost(params.slug);
+  if (!post) {
+    return <div>Error getting post data</div>;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.postImgContainer}>
@@ -9,35 +19,24 @@ const SinglePostPage = () => {
           fill
           sizes="30vw"
           alt="post image"
-          src="https://images.pexels.com/photos/18369349/pexels-photo-18369349/free-photo-of-tet-holiday-in-vietnam.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={post?.img ?? "/defaultBlog.webp"}
           className={styles.postImg}
         />
       </div>
       <div className={styles.postInfoContainer}>
-        <h1 className={styles.title}>Title</h1>
+        <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.details}>
-          <Image
-            alt="avatar"
-            src="https://images.pexels.com/photos/18369349/pexels-photo-18369349/free-photo-of-tet-holiday-in-vietnam.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            width={50}
-            height={50}
-            className={styles.avatar}
-          />
-          <div className={styles.info}>
-            <span className={styles.infoLabel}>Author</span>
-            <span className={styles.infoValue}>Terry Jefferson</span>
-          </div>
+          <Suspense fallback={<span>... Loading</span>}>
+            <PostUser userId={post.userId} />
+          </Suspense>
           <div className={styles.info}>
             <span className={styles.infoLabel}>Published</span>
-            <span className={styles.infoValue}>01.01.2024</span>
+            <span className={styles.infoValue}>
+              {post.createdAt.toString().slice(4, 15)}
+            </span>
           </div>
         </div>
-        <div className={styles.content}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione
-          cupiditate temporibus minima iusto aliquid nihil repellendus, quaerat
-          consectetur optio doloremque ipsa facere unde labore sequi ea sit!
-          Fugiat, minima deserunt!
-        </div>
+        <div className={styles.content}>{post.description}</div>
       </div>
     </div>
   );

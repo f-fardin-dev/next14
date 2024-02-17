@@ -30,12 +30,6 @@
   gap: 20px;
 }
 
-.avatar {
-  border-radius: 50%;
-  object-fit: cover;
-  min-width: 50px;
-}
-
 .info {
   display: flex;
   flex-direction: column;
