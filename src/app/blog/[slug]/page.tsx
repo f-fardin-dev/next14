@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./singlePostPage.module.css";
-import { getPost } from "@app/services/post";
+import { getPostApi } from "@app/services/post";
 import { PostUser } from "@app/components/postUser/PostUser";
 import { Suspense } from "react";
 
@@ -9,7 +9,7 @@ interface SinglePostPageProps {
 }
 
 export const generateMetadata = async ({ params }: SinglePostPageProps) => {
-  const post = await getPost(params.slug);
+  const post = await getPostApi(params.slug);
   return {
     title: post?.title,
     description: post?.description,
@@ -17,7 +17,7 @@ export const generateMetadata = async ({ params }: SinglePostPageProps) => {
 };
 
 const SinglePostPage = async ({ params }: SinglePostPageProps) => {
-  const post = await getPost(params.slug);
+  const post = await getPostApi(params.slug);
   if (!post) {
     return <div>Error getting post data</div>;
   }
@@ -41,7 +41,7 @@ const SinglePostPage = async ({ params }: SinglePostPageProps) => {
           <div className={styles.info}>
             <span className={styles.infoLabel}>Published</span>
             <span className={styles.infoValue}>
-              {post.createdAt.toString().slice(4, 15)}
+              {new Date(post.createdAt).toString().slice(4, 15)}
             </span>
           </div>
         </div>

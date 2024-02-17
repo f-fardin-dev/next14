@@ -4,5 +4,5 @@ export interface IPost {
   userId: string;
   slug: string;
   img: string;
-  createdAt: Date;
+  createdAt: string | Date;
 }

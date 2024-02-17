@@ -20,3 +20,17 @@ export const getPost = async (slug: string): Promise<IPost | undefined> => {
     console.error(`Failed to fetch post (slug: ${slug}) : `, error);
   }
 };
+
+export const getPostApi = async (slug: string): Promise<IPost | undefined> => {
+  try {
+    const res = await fetch(`${process.env.HOST_URL}/blog/${slug}`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) {
+      throw new Error("Something went wrong");
+    }
+    return await res.json();
+  } catch (error) {
+    throw new Error("Something went wrong");
+  }
+};
