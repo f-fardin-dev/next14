@@ -7,6 +7,15 @@ import { Suspense } from "react";
 interface SinglePostPageProps {
   params: { slug: string };
 }
+
+export const generateMetadata = async ({ params }: SinglePostPageProps) => {
+  const post = await getPost(params.slug);
+  return {
+    title: post?.title,
+    description: post?.description,
+  };
+};
+
 const SinglePostPage = async ({ params }: SinglePostPageProps) => {
   const post = await getPost(params.slug);
   if (!post) {
