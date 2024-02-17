@@ -1,6 +1,7 @@
 import { User } from "@app/models/users";
 import { connectToDb } from "./db";
 import { IUser } from "@app/types/user.interface";
+import { unstable_noStore as noStore } from "next/cache";
 
 export const getUsers = async (): Promise<IUser[]> => {
   try {
@@ -13,6 +14,7 @@ export const getUsers = async (): Promise<IUser[]> => {
 };
 
 export const getUser = async (userId: string): Promise<IUser | undefined> => {
+  noStore();
   try {
     connectToDb();
     return (await User.findById(userId)) as IUser;
