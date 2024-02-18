@@ -1,0 +1,99 @@
+.links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.logoutBt {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-inline-start: 20px;
+  background-color: darkorange;
+}
+
+.mobileLinks {
+  position: absolute;
+  flex-direction: column;
+  right: 0;
+  height: calc(100dvh - var(--navbar-height));
+  top: var(--navbar-height);
+  padding-block: 20px 50px;
+  width: var(--mobile-navbar-width);
+  background-color: #110f38;
+  border-top-left-radius: 20px;
+  animation: slide 0.3s ease;
+  display: none;
+}
+
+.mobileLogoutBt {
+  margin-inline-start: 0;
+  margin-block-start: auto;
+}
+
+.menuBtContainer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+  .mobileLinks {
+    display: flex;
+  }
+  .menuBtContainer {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .menuBt {
+    height: 3px;
+    width: 28px;
+    position: relative;
+    background-color: var(--text-colorSoft);
+    border-radius: 5px;
+  }
+  .menuBt::after,
+  .menuBt::before {
+    content: "";
+    display: inline-block;
+    height: 3px;
+    width: 28px;
+    background-color: var(--text-colorSoft);
+    position: absolute;
+    border-radius: 5px;
+    top: -10px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+  }
+  .menuBt::after {
+    top: 10px;
+  }
+  .menuBtOpen {
+    background-color: transparent;
+  }
+  .menuBtOpen::after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .menuBtOpen::before {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
