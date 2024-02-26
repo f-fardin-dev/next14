@@ -37,3 +37,12 @@ export const registerUser = async (formData: FormData) => {
     return { error: "Something went wrong!" };
   }
 };
+
+export const loginUser = async (formData: FormData) => {
+  const { username, password } = Object.fromEntries(formData);
+  try {
+    await signIn("credentials", { username, password });
+  } catch (error) {
+    return { error: "Something went wrong!" };
+  }
+};

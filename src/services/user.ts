@@ -1,6 +1,6 @@
 import { User } from "@app/models/users";
 import { connectToDb } from "./db";
-import { IUser } from "@app/types/user.interface";
+import { Credentials, IUser } from "@app/types/user.interface";
 import { unstable_noStore as noStore } from "next/cache";
 import { Profile } from "next-auth";
 
@@ -46,5 +46,26 @@ export const checkAndRegisterGithubUser = async (
   } catch (error) {
     console.error("Failed checkAndRegisterUser: ", error);
     return false;
+  }
+};
+
+export const loginWithCredentials = async ({
+  username,
+  password,
+}: Credentials) => {
+  try {
+    await connectToDb();
+    const user = await User.findOne({ username });
+    if (!user) {
+      return null;
+    }
+    // const isPasswordCorrect = await bcrypt.compare(password, user.passwords);
+    const isPasswordCorrect = `${password}&${username}` === user.password;
+    if (!isPasswordCorrect) {
+      return null;
+    }
+    return user;
+  } catch (error) {
+    return null;
   }
 };

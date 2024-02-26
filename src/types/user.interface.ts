@@ -5,3 +5,8 @@ export interface IUser {
   img: string;
   isAdmin: boolean;
 }
+
+export interface Credentials {
+  username: string;
+  password: string;
+}
