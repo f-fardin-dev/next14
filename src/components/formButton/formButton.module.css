@@ -1,0 +1,15 @@
+.button {
+  padding: 12px;
+  cursor: pointer;
+  background-color: var(--btn-color);
+  color: var(--text-color);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}

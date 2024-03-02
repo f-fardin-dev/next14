@@ -7,10 +7,11 @@ import styles from "./registerForm.module.css";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Link from "next/link";
+import { FormButton } from "../formButton/FormButton";
 
 export const RegisterForm = () => {
-  const [state, formAction] = useFormState(registerUser, {} as FormState);
   const router = useRouter();
+  const [state, formAction] = useFormState(registerUser, {} as FormState);
 
   useEffect(() => {
     state?.success && router.push("/login");
@@ -42,7 +43,7 @@ export const RegisterForm = () => {
         name="passwordRepeat"
         autoComplete="new-password"
       />
-      <button>Register</button>
+      <FormButton title="Register" />
       {state?.error && <span className={styles.errorMsg}>{state.error}</span>}
       <Link className={styles.loginLink} href="/login">
         Have an account? <b>Login</b>
