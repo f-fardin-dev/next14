@@ -3,6 +3,7 @@
 import { signIn, signOut } from "@app/auth";
 import { User } from "@app/models/users";
 import { connectToDb } from "@app/services/db";
+import { FormState } from "@app/types/form.interface";
 
 export const handleGithubLogin = async () => {
   await signIn("github");
@@ -12,7 +13,10 @@ export const handleLogout = async () => {
   await signOut();
 };
 
-export const registerUser = async (formData: FormData) => {
+export const registerUser = async (
+  prevState: FormState,
+  formData: FormData
+) => {
   const { username, email, password, passwordRepeat, img } =
     Object.fromEntries(formData);
 
@@ -33,6 +37,7 @@ export const registerUser = async (formData: FormData) => {
     const newUser = new User({ username, email, img, password: hPassword });
     await newUser.save();
     console.log("User created");
+    return { success: true };
   } catch (error) {
     return { error: "Something went wrong!" };
   }

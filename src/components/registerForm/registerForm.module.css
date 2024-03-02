@@ -1,0 +1,42 @@
+.form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  background-color: #485979;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.form input {
+  padding: 12px;
+  background-color: var(--bgSoft);
+  color: var(--text-color);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form button {
+  padding: 12px;
+  cursor: pointer;
+  background-color: var(--btn-color);
+  color: var(--text-color);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.errorMsg {
+  align-self: flex-start;
+  padding: 4px 8px;
+  color: #eb0037;
+}
+
+.loginLink {
+  margin-block-start: 16px;
+}
