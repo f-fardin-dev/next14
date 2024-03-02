@@ -43,11 +43,15 @@ export const registerUser = async (
   }
 };
 
-export const loginUser = async (formData: FormData) => {
+export const loginUser = async (prevState: FormState, formData: FormData) => {
   const { username, password } = Object.fromEntries(formData);
   try {
     await signIn("credentials", { username, password });
+    return { success: true };
   } catch (error) {
-    return { error: "Something went wrong!" };
+    if ((error as Record<string, unknown>).type === "CredentialsSignin") {
+      return { error: "Wrong credentials!" };
+    }
+    throw error;
   }
 };

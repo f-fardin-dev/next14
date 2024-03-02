@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+
+.form input {
+  padding: 12px;
+  background-color: var(--bgSoft);
+  color: var(--text-color);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.errorMsg {
+  align-self: flex-start;
+  padding: 4px 8px;
+  color: #eb0037;
+}
+
+.loginLink {
+  margin-block-start: 16px;
+}
