@@ -3,6 +3,7 @@ import { connectToDb } from "./db";
 import { Credentials, IUser } from "@app/types/user.interface";
 import { unstable_noStore as noStore } from "next/cache";
 import { Profile } from "next-auth";
+import { HydratedDocument } from "mongoose";
 
 export const getUsers = async (): Promise<IUser[]> => {
   try {
@@ -55,7 +56,7 @@ export const loginWithCredentials = async ({
 }: Credentials) => {
   try {
     await connectToDb();
-    const user = await User.findOne({ username });
+    const user = (await User.findOne({ username })) as HydratedDocument<IUser>;
     if (!user) {
       return null;
     }
@@ -64,7 +65,7 @@ export const loginWithCredentials = async ({
     if (!isPasswordCorrect) {
       return null;
     }
-    return user;
+    return user.toObject();
   } catch (error) {
     return null;
   }
