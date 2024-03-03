@@ -6,6 +6,7 @@ import {
   loginWithCredentials,
 } from "@app/services/user";
 import { Credentials } from "@app/types/user.interface";
+import { authConfig } from "@app/auth/authConfig";
 
 export const {
   handlers: { GET, POST },
@@ -13,6 +14,7 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
+  ...authConfig,
   providers: [
     GitHub,
     CredentialsProvider({
@@ -24,6 +26,7 @@ export const {
     }),
   ],
   callbacks: {
+    ...authConfig.callbacks,
     async signIn({ account, profile }) {
       if (account?.provider !== "github") {
         return true;
