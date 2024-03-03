@@ -4,9 +4,8 @@ import { useState } from "react";
 import { links } from "../links";
 import { NavItem } from "../navItem/NavItem";
 import { handleLogout } from "@app/actions";
-import styles from "./responsiveNav.module.css";
 import { Session } from "next-auth";
-import { IUser } from "@app/types/user.interface";
+import styles from "./responsiveNav.module.css";
 
 interface ResponsiveNavProps {
   session: Session | null;
@@ -22,9 +21,7 @@ export const ResponsiveNav = ({ session }: ResponsiveNavProps) => {
         ))}
         {session?.user ? (
           <>
-            {(session?.user as IUser)?.isAdmin && (
-              <NavItem path="/admin" title="Admin" />
-            )}
+            {session?.user?.isAdmin && <NavItem path="/admin" title="Admin" />}
             <form action={handleLogout}>
               <button
                 className={`${styles.logoutBt} ${
