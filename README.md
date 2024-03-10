@@ -5,7 +5,8 @@ This is a Next.js app that covers the following topics in this project:
 - Using client and server components
 - Using server actions
 - Using middleware
-- Using next/auth for authentication and GitHub login.
+- Using `next/auth` for authentication and GitHub login.
+- Using `useFormState` and `useFormStatus`
 
 ## Getting Started
 
