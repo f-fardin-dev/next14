@@ -1,0 +1,31 @@
+.container {
+  margin-block-start: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.col {
+  flex: 1;
+}
+
+.row h2 {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .col {
+    width: 100%;
+  }
+}
