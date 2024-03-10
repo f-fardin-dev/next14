@@ -1,9 +1,11 @@
 "use server";
 
 import { signIn, signOut } from "@app/auth";
+import { Post } from "@app/models/post";
 import { User } from "@app/models/users";
 import { connectToDb } from "@app/services/db";
 import { FormState } from "@app/types/form.interface";
+import { revalidatePath } from "next/cache";
 
 export const handleGithubLogin = async () => {
   await signIn("github");
@@ -53,5 +55,76 @@ export const loginUser = async (prevState: FormState, formData: FormData) => {
       return { error: "Wrong credentials!" };
     }
     throw error;
+  }
+};
+
+// ============================================================================================ Users
+export const addUser = async (prevState: FormState, formData: FormData) => {
+  const { username, email, password, img } = Object.fromEntries(formData);
+  try {
+    connectToDb();
+    const newUser = new User({
+      username,
+      email,
+      password: `${password}&${username}`,
+      img,
+    });
+    await newUser.save();
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error(error);
+    return { error: "Something went wrong" };
+  }
+};
+
+export const deleteUser = async (formData: FormData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDb();
+    await Post.deleteMany({ userId: id });
+    await User.findByIdAndDelete({ _id: id });
+    revalidatePath("/admin");
+  } catch (error) {
+    console.error(error);
+    return { error: "Something went wrong" };
+  }
+};
+
+// ============================================================================================ Posts
+
+export const addPost = async (prevState: FormState, formData: FormData) => {
+  const { title, description, slug, img, userId } =
+    Object.fromEntries(formData);
+  try {
+    connectToDb();
+    const newPost = new Post({
+      title,
+      description,
+      slug,
+      img,
+      userId,
+    });
+    await newPost.save();
+    revalidatePath("/blog");
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error(error);
+    return { error: "Something went wrong" };
+  }
+};
+
+export const deletePost = async (formData: FormData) => {
+  const { slug } = Object.fromEntries(formData);
+  try {
+    connectToDb();
+    await Post.findOneAndDelete({ slug });
+    revalidatePath("/blog");
+    revalidatePath("/admin");
+  } catch (error) {
+    console.error(error);
+    return { error: "Something went wrong" };
   }
 };
