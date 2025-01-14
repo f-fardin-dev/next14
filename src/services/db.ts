@@ -1,16 +1,17 @@
 import mongoose from "mongoose";
 
-const connection = { isConnected: 0 };
 
 export const connectToDb = async () => {
   try {
     // This is useful in the development mode
-    if (connection.isConnected) {
-      console.warn("Using existing connection");
+    if(mongoose.connection.readyState === 1 ){
+      console.warn("Using the existing connection");
       return;
     }
-    const db = await mongoose.connect(process.env.MONGO ?? "");
-    connection.isConnected = db.connections[0].readyState;
+
+    await mongoose.connect(process.env.MONGO ?? "");
+    console.warn("Connect to the DB successfully");
+    
   } catch (error) {
     throw new Error(`Error Connect to DB : ${error}`);
   }
