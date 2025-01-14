@@ -61,7 +61,7 @@ export const loginWithCredentials = async ({
       return null;
     }
     // const isPasswordCorrect = await bcrypt.compare(password, user.passwords);
-    const isPasswordCorrect = `${password}&${username}` === user.password;
+    const isPasswordCorrect = password === user.password;
     if (!isPasswordCorrect) {
       return null;
     }
